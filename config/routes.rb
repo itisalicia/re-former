@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
+  resources :users
+
   get "up" => "rails/health#show", as: :rails_health_check
 
-  resources :users, only: [ :new, :create ]
   root "users#new"
 end

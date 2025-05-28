@@ -1,0 +1,35 @@
+<h1> Edit a user </h1>
+
+<%= form_with model: @user, method: :patch do |form| %>
+    <% @user.errors.full_messages_for(:username).each do |message| %>
+        <div>
+            <p style="color: red;"><%= message %></p>
+        </div>
+    <% end %>
+
+    <% @user.errors.full_messages_for(:email).each do |message| %>
+        <div>
+            <p style="color: red;"><%= message %></p>
+        </div>
+    <% end %>
+
+    <% @user.errors.full_messages_for(:password).each do |message| %>
+        <div>
+            <p style="color: red;"><%= message %></p>
+        </div>
+    <% end %>    
+
+    <div>
+        <%= form.label :username %>
+        <%= form.text_field :username %>
+    </div>
+    <div>
+        <%= form.label :email %>
+        <%= form.email_field :email, placeholder: "example@example.com" %>
+    </div>
+    <div>
+        <%= form.label :password %>
+        <%= form.password_field :password %>
+    </div>
+    <%= form.submit "Update" %>
+<% end %>
